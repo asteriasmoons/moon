@@ -1,34 +1,145 @@
+/* @settings
+name: Moon Minimal Theme
+id: moon-minimal-theme
+settings:
+  - type: class-toggle
+    id: center-headers
+    title: Center Headers
+    description: Center all note headers (h1, h2, h3, etc.)
+    default: true
+  - type: variable-select
+    id: font-family
+    title: Font Family
+    description: Choose your preferred font for notes
+    default: "system-ui"
+    options:
+      - value: "system-ui"
+        label: System UI
+      - value: "Inter, sans-serif"
+        label: Inter
+      - value: "Fira Code, monospace"
+        label: Fira Code (Monospaced)
+      - value: "Georgia, serif"
+        label: Georgia (Serif)
+      - value: "Comic Sans MS, cursive"
+        label: Comic Sans (just for fun)
+*/
+
+/* ===== Palette ===== */
+:root {
+  --background-primary: #161a1e;
+  --background-secondary: #20242a;
+  --text-normal: #f4f4f4;
+  --text-muted: #bbbbbb;
+  --accent: #66ffe3;
+
+  /* Folder colors (customize as needed) */
+  --folder-color-1: #ffab91;
+  --folder-color-2: #ffd700;
+  --folder-color-3: #a3d977;
+  --folder-color-4: #6ec6ff;
+
+  /* Font family variable (used in Style Settings) */
+  --moon-font-family: system-ui;
+}
+
+/* ===== Font Application ===== */
+body,
+.markdown-preview-view,
+.markdown-source-view,
+.cm-content,
+.cm-line {
+  font-family: var(--moon-font-family), system-ui, sans-serif !important;
+}
+
+/* ===== Minimalist Dark Base ===== */
 body {
-	--radius-s: 0px;
-	--radius-m: 0px;
-	--radius-l: 0px;
-	--input-radius: 0px;
-	--tab-radius-active: 0px;
-	--checkbox-radius: 0px;
-	--toggle-radius: 0px;
-	--toggle-thumb-radius: 0px;
-	--slider-thumb-radius: 0px;
+  background-color: var(--background-primary);
+  color: var(--text-normal);
+}
+.workspace .nav-files-container {
+  background-color: var(--background-secondary);
 }
 
-.workspace-tab-header.is-active::before, .workspace-tab-header.is-active::after {
-	display: none;
+/* ===== Header Centering via Style Settings ===== */
+.theme-moon-minimal-theme.center-headers .markdown-preview-section h1,
+.theme-moon-minimal-theme.center-headers .markdown-preview-section h2,
+.theme-moon-minimal-theme.center-headers .markdown-preview-section h3,
+.theme-moon-minimal-theme.center-headers .cm-header {
+  text-align: center;
+}
+.theme-moon-minimal-theme:not(.center-headers) .markdown-preview-section h1,
+.theme-moon-minimal-theme:not(.center-headers) .markdown-preview-section h2,
+.theme-moon-minimal-theme:not(.center-headers) .markdown-preview-section h3,
+.theme-moon-minimal-theme:not(.center-headers) .cm-header {
+  text-align: left;
 }
 
+/* ===== Minimalist UI Tweaks ===== */
+body {
+  --radius-s: 0px;
+  --radius-m: 0px;
+  --radius-l: 0px;
+  --input-radius: 0px;
+  --tab-radius-active: 0px;
+  --checkbox-radius: 0px;
+  --toggle-radius: 0px;
+  --toggle-thumb-radius: 0px;
+  --slider-thumb-radius: 0px;
+}
+.workspace-tab-header.is-active::before,
+.workspace-tab-header.is-active::after {
+  display: none;
+}
 svg * {
-	stroke-linecap: square;
-	stroke-linejoin: miter;
-	rx: 0;
-	ry: 0;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+  rx: 0;
+  ry: 0;
 }
-
 .menu {
-	padding: var(--size-2-1);
+  padding: var(--size-2-1);
 }
-
 .menu-item {
-	padding: var(--size-4-1) var(--size-4-2);
+  padding: var(--size-4-1) var(--size-4-2);
+}
+.menu-separator {
+  margin: var(--size-2-1) calc(var(--size-2-1) * -1);
+}
+.workspace-leaf-header, .side-dock-title {
+  background: transparent;
+  border: none;
+}
+.markdown-preview-section blockquote {
+  border-left: 2px solid var(--accent);
+  background: transparent;
+  color: var(--text-muted);
+}
+.cm-inline-code, .markdown-preview-section code {
+  background: #22272e;
+  color: var(--accent);
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+.nav-folder-title { font-weight: bold; }
+
+/* ===== Colorful Folders (by order in the file explorer) ===== */
+.nav-folder.mod-root > .nav-folder-children > .nav-folder:nth-child(1) .nav-folder-title {
+  color: var(--folder-color-1);
+}
+.nav-folder.mod-root > .nav-folder-children > .nav-folder:nth-child(2) .nav-folder-title {
+  color: var(--folder-color-2);
+}
+.nav-folder.mod-root > .nav-folder-children > .nav-folder:nth-child(3) .nav-folder-title {
+  color: var(--folder-color-3);
+}
+.nav-folder.mod-root > .nav-folder-children > .nav-folder:nth-child(4) .nav-folder-title {
+  color: var(--folder-color-4);
 }
 
-.menu-separator {
-	margin: var(--size-2-1) calc(var(--size-2-1) * -1);
-}
+/* ===== Colorful Folders (by folder name) ===== */
+/* Example: Change 'Work' to your folder name, adjust color as needed */
+.nav-folder-title[data-path^="Work"]     { color: #6ec6ff !important; }
+.nav-folder-title[data-path^="Personal"] { color: #a3d977 !important; }
+.nav-folder-title[data-path^="Notes"]    { color: #ffd700 !important; }
+.nav-folder-title[data-path^="Archive"]  { color: #ffab91 !important; }
