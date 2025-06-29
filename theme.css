@@ -22,12 +22,6 @@ settings:
   --folder-color-2: #ffd700;
   --folder-color-3: #a3d977;
   --folder-color-4: #6ec6ff;
-
-  /* Card style variables */
-  --card-bg: #222631;
-  --card-radius: 18px;
-  --card-shadow: 0 6px 28px rgba(0,0,0,0.18), 0 1.5px 4px rgba(0,0,0,0.18);
-  --card-padding: 2.5rem 2rem;
 }
 
 /* ===== Minimalist Dark Base ===== */
@@ -37,30 +31,6 @@ body {
 }
 .workspace .nav-files-container {
   background-color: var(--background-secondary);
-}
-
-/* ===== Card-Like View for Notes ===== */
-.markdown-preview-view,
-.markdown-source-view.mod-cm6,
-.cm-s-obsidian,
-.workspace-leaf-content {
-  background: var(--card-bg);
-  border-radius: var(--card-radius);
-  box-shadow: var(--card-shadow);
-  padding: var(--card-padding);
-  margin: 2.5rem auto;
-  max-width: 900px;
-}
-.markdown-preview-view {
-  box-sizing: border-box;
-}
-.workspace-split > .workspace-leaf .workspace-leaf-content {
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
-}
-.markdown-preview-section {
-  background: none !important;
-  padding: 0 !important;
 }
 
 /* ===== Header Centering via Style Settings (ALL 6 headers) ===== */
