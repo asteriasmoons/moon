@@ -1,11 +1,11 @@
 /* @settings
-name: Moon Minimal Theme
-id: moon-minimal-theme
+name: moon
+id: moon
 settings:
   - type: class-toggle
     id: center-headers
     title: Center Headers
-    description: Center all note headers (h1–h6)
+    description: Center all headers (H1–H6) in notes and editor
     default: true
 */
 
@@ -29,28 +29,40 @@ body {
   background-color: var(--background-primary);
   color: var(--text-normal);
 }
+
 .workspace .nav-files-container {
   background-color: var(--background-secondary);
 }
 
-/* ===== Header Centering via Style Settings (ALL 6 headers) ===== */
-.theme-moon-minimal-theme.center-headers .markdown-preview-section h1,
-.theme-moon-minimal-theme.center-headers .markdown-preview-section h2,
-.theme-moon-minimal-theme.center-headers .markdown-preview-section h3,
-.theme-moon-minimal-theme.center-headers .markdown-preview-section h4,
-.theme-moon-minimal-theme.center-headers .markdown-preview-section h5,
-.theme-moon-minimal-theme.center-headers .markdown-preview-section h6,
-.theme-moon-minimal-theme.center-headers .cm-header {
-  text-align: center;
+/* ===== Header Centering via Style Settings (ALL 6 headers, both preview and editor) ===== */
+.theme-moon.center-headers .markdown-preview-section h1,
+.theme-moon.center-headers .markdown-preview-section h2,
+.theme-moon.center-headers .markdown-preview-section h3,
+.theme-moon.center-headers .markdown-preview-section h4,
+.theme-moon.center-headers .markdown-preview-section h5,
+.theme-moon.center-headers .markdown-preview-section h6,
+.theme-moon.center-headers .cm-header-1,
+.theme-moon.center-headers .cm-header-2,
+.theme-moon.center-headers .cm-header-3,
+.theme-moon.center-headers .cm-header-4,
+.theme-moon.center-headers .cm-header-5,
+.theme-moon.center-headers .cm-header-6 {
+  text-align: center !important;
 }
-.theme-moon-minimal-theme:not(.center-headers) .markdown-preview-section h1,
-.theme-moon-minimal-theme:not(.center-headers) .markdown-preview-section h2,
-.theme-moon-minimal-theme:not(.center-headers) .markdown-preview-section h3,
-.theme-moon-minimal-theme:not(.center-headers) .markdown-preview-section h4,
-.theme-moon-minimal-theme:not(.center-headers) .markdown-preview-section h5,
-.theme-moon-minimal-theme:not(.center-headers) .markdown-preview-section h6,
-.theme-moon-minimal-theme:not(.center-headers) .cm-header {
-  text-align: left;
+
+.theme-moon:not(.center-headers) .markdown-preview-section h1,
+.theme-moon:not(.center-headers) .markdown-preview-section h2,
+.theme-moon:not(.center-headers) .markdown-preview-section h3,
+.theme-moon:not(.center-headers) .markdown-preview-section h4,
+.theme-moon:not(.center-headers) .markdown-preview-section h5,
+.theme-moon:not(.center-headers) .markdown-preview-section h6,
+.theme-moon:not(.center-headers) .cm-header-1,
+.theme-moon:not(.center-headers) .cm-header-2,
+.theme-moon:not(.center-headers) .cm-header-3,
+.theme-moon:not(.center-headers) .cm-header-4,
+.theme-moon:not(.center-headers) .cm-header-5,
+.theme-moon:not(.center-headers) .cm-header-6 {
+  text-align: left !important;
 }
 
 /* ===== Minimalist UI Tweaks ===== */
@@ -84,7 +96,8 @@ svg * {
 .menu-separator {
   margin: var(--size-2-1) calc(var(--size-2-1) * -1);
 }
-.workspace-leaf-header, .side-dock-title {
+.workspace-leaf-header,
+.side-dock-title {
   background: transparent;
   border: none;
 }
@@ -93,13 +106,16 @@ svg * {
   background: transparent;
   color: var(--text-muted);
 }
-.cm-inline-code, .markdown-preview-section code {
+.cm-inline-code,
+.markdown-preview-section code {
   background: #22272e;
   color: var(--accent);
   border-radius: 4px;
   padding: 2px 6px;
 }
-.nav-folder-title { font-weight: bold; }
+.nav-folder-title {
+  font-weight: bold;
+}
 
 /* ===== Colorful Folders (by order in the file explorer) ===== */
 .nav-folder.mod-root > .nav-folder-children > .nav-folder:nth-child(1) .nav-folder-title {
